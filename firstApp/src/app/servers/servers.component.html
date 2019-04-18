@@ -1,3 +1,28 @@
 
-<app-server></app-server>
-<app-warning></app-warning>  
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onServerCreated()">Add Server</button>
+<button class="btn btn-primary"  (click)="onDisplayDetails()">Display Details</button>
+
+<!-- <input type="text" class="form-control" (input)="setServerName($event)"/> -->
+<div>
+    <input placeholder="label" [(ngModel)]="serverName">
+</div>
+  
+<!-- <p>{{ serverName }}</p> -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+  <!-- <input [(ngModel)]="userName"> -->
+  <!-- <button class="btn btn-primary" (click)="userName = ''" [disabled]="userName === ''">Reset username</button> -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created. Server name is {{serverName}}.</p>
+<div *ngIf="displayDetails">
+  <p>Server details: Secret password= 'tuna'</p>
+  <ul *ngFor="let click of buttonClicks; let i = index">
+    <li [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': i >= 4}">{{click}}</li>
+  </ul>
+</div>
+
+<ng-template #noServer>
+    <p>No server was created.</p>
+</ng-template>
+name
+<app-server *ngFor="let server of servers"></app-server>
+<app-warning></app-warning> 

@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
         h1 : {color: orange}
     `]
 })
-export class warningComponent {
+export class WarningComponent {
 
 }
